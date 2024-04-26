@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import "./app.css";
+  import loadingGif from "/loading.gif?url";
 
   let termShown = $state(false);
   let termButtonShown = $state(false);
@@ -60,7 +61,7 @@ async def load():
   }
 
 
-  track = platform.window.MM.prepare("clangen.apk", json.dumps(cfg))
+  track = platform.window.MM.prepare("https://imlvna.github.io/clangen/clangen.apk", json.dumps(cfg))
 
   # wait until zip mount + overlayfs is complete
   while not track.ready:
@@ -98,8 +99,8 @@ asyncio.run(load())
 
 <main class="bg-gray-700 size-full min-h-screen min-w-screen text-white flex flex-col justify-center align-middle">
   <div class="flex flex-row justify-center align-middle items-center size-full">
-    <canvas id="canvas" class="aspect-square !h-screen !w-auto" class:hidden={!gameReady}></canvas>
-    <img src="loading.gif" class="size-1/6" class:hidden={gameReady} alt="Loading..." />
+    <canvas id="canvas" class="aspect-square !w-screen !h-auto md:!h-screen lg:!h-screen md:!w-auto lg:!w-auto" class:hidden={!gameReady}></canvas>
+    <img src={loadingGif} class="size-1/2 md:size-1/4 lg:size-1/6" class:hidden={gameReady} alt="Loading..." />
   </div>
   <div class="console h-full max-w-2/3 flex flex-row absolute top-0 left-0 z-50">
     <div class="flex flex-row size-full">
