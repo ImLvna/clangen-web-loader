@@ -7,19 +7,23 @@
     <title>Clangen Web</title>
 
     <script>
-      // config = {
-      //   xtermjs : "{{cookiecutter.xtermjs}}" ,
-      //   _sdl2 : "canvas",
-      //   user_canvas : 0,
-      //   user_canvas_managed : 0,
-      //   ume_block : {{cookiecutter.ume_block}},
-      //   can_close : {{cookiecutter.can_close}},
-      //   archive : "{{cookiecutter.archive}}",
-      //   gui_debug : 3,
-      //   cdn : "{{cookiecutter.cdn}}",
-      //   autorun : {{cookiecutter.autorun}},
-      //   PYBUILD : "{{cookiecutter.PYBUILD}}"
-      // }
+      config = {
+        xtermjs : "{{cookiecutter.xtermjs}}" ,
+        _sdl2 : "canvas",
+        user_canvas : 0,
+        user_canvas_managed : 0,
+        ume_block : {{cookiecutter.ume_block}},
+        can_close : {{cookiecutter.can_close}},
+        archive : "{{cookiecutter.archive}}",
+        gui_debug : 3,
+        cdn : "{{cookiecutter.cdn}}",
+        autorun : {{cookiecutter.autorun}},
+        PYBUILD : "{{cookiecutter.PYBUILD}}"
+      }
+    </script>
+    <script>
+      if ("serviceWorker" in navigator)
+        navigator.serviceWorker.register("/clangen/service-worker.js");
     </script>
   </head>
   <body>
