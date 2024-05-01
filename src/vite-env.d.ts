@@ -8,6 +8,7 @@ declare global {
     gameError: (error: string) => void;
     downloadLogsCallback: () => void;
     gameApkUrl: string;
+    closeGracefully: () => void;
 
     files: {
       upload: (path: string, accept?: string) => Promise<string>;
@@ -23,6 +24,9 @@ declare global {
       FS: {
         writeFile: (path: string, data: string | Uint8Array) => void;
       };
+    };
+    FS: {
+      syncfs: (pull: boolean, callback: () => void) => void;
     };
   }
 }
