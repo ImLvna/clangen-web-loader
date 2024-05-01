@@ -6,10 +6,22 @@ declare global {
     toggleDebug: () => void;
     gameReady: () => void;
     gameError: (error: string) => void;
+    downloadLogsCallback: () => void;
+    gameApkUrl: string;
+
+    files: {
+      upload: (path: string, accept?: string) => Promise<string>;
+    };
 
     python: {
       vt: {
         xterm: Terminal;
+      };
+    };
+
+    VM: {
+      FS: {
+        writeFile: (path: string, data: string | Uint8Array) => void;
       };
     };
   }
